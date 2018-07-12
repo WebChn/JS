@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>IFE ECMAScript</title>
+	</head>
+	<body>
+		<input type="text" name="first-number" id="first-number" value="" placeholder="第一个数字" />
+		<input type="text" name="second-number" id="second-number" value="" placeholder="第二个数字" /><br />
+		<button id="add-btn"  class="btn">加</button>
+		<input type="button" name="minus-btn" id="minus-btn" value="减"  class="btn"/>
+		<input type="button" name="times-btn" id="times-btn" value="乘"  class="btn"/>
+		<input type="button" name="divide-btn" id="divide-btn" value="除" class="btn" /><br />
+		<span>运算结果：</span>
+		<span id="result"></span>
+		
+		<script type="text/javascript">
+		window.onload=function(){
+			
+	
+			
+			var getid;
+			var arr=document.getElementsByClassName('btn');
+			for(var i=0;i<arr.length;i++){
+				arr[i].onclick=function(){
+				var x=parseFloat(document.getElementById("first-number").value);
+				var y=parseFloat(document.getElementById("second-number").value);
+				if(isNaN(x)||isNaN(y)){
+					alert("请输入整数");
+					console.log("输入存在非数字");
+			}
+				getid=this.id;
+				if(getid === "divide-btn" && y===0){
+					alert("除数不能为0");
+					console.log("除数为0");
+				}
+				switch (getid){
+					case "add-btn":result.innerHTML = x + y;
+					break;
+					case "minus-btn":result.innerHTML = x - y;
+					break;
+					case "times-btn":result.innerHTML = x * y;
+					break;
+					case "divide-btn":result.innerHTML = x / y;
+					break;
+				}
+			}
+		}
+	}	
+		</script>
+	</body>
+</html>
