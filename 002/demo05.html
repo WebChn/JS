@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	<style>
+		div{
+			width: 480px;
+			height: 480px;
+			background: url(erikjpg.jpg);
+		}
+	</style> 
+	</head>
+	<body>
+		<div id="ani"></div>
+		<script type="text/javascript">
+			window.onload = function(){
+				var ani = document.getElementById('ani')
+				var y= 480;
+				function gif(){
+					ani.style.backgroundPositionY = '-' + y + 'px';
+					y>8160?y=480:y+=480;
+				}
+				setInterval(gif,100);
+			}
+		</script>
+	</body>
+</html>
