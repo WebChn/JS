@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input id="stack-input" type="text">
+		<p id="stack-cont">栈内容：apple-gt;pear</p>    
+		<button id="push-btn">进栈</button>
+		<button id="pop-btn">退栈</button>
+		<button id="font-btn">打印栈顶元素内容</button>
+		<button id="empty-btn">判断栈是否为空</button>
+		
+		<script type="text/javascript">
+			var stack = ["apple","pear"];
+			var p = document.querySelector('#stack-cont'),
+				stackInput = document.querySelector('#stack-input'),
+				pushBtn = document.querySelector('#push-btn'),
+				popBtn = document.querySelector('#pop-btn'),
+				fontBtn = document.querySelector('#font-btn'),
+				emptyBtn = document.getElementById('empty-btn');
+				
+			/*//栈顶对应数组中最后一个元素  栈先进后出  插入和删除操作都只在栈顶发生
+			pushBtn.addEventListener('click',function(){
+				stack.push(stackInput.value);
+				p.innerHTML = "栈内容：" +stack.join('-&gt'); 
+				stackInput.value = "";
+				
+			})
+			popBtn.onclick = function(){
+				stack.pop();
+				p.innerHTML = "栈内容：" +stack.join('-&gt');
+			}
+			fontBtn.addEventListener('click',function(){
+				p.innerHTML = "栈顶内容：" + stack[stack.length - 1];
+			})
+			emptyBtn.addEventListener('click',function(){
+				if(stack.length === 0){
+					p.innerHTML = "栈是空的";
+				}else{
+					p.innerHTML = "栈不是空的";
+				}
+			})
+			*/
+			//栈顶对应数组中第一个元素  栈先进后出  插入和删除操作都只在栈顶发生
+			pushBtn.addEventListener('click',function(){
+				stack.unshift(stackInput.value);
+				p.innerHTML = "栈内容：" +stack.join('-&gt'); 
+				stackInput.value = "";
+				
+			})
+			popBtn.onclick = function(){
+				stack.shift();
+				p.innerHTML = "栈内容：" +stack.join('-&gt');
+			}
+			fontBtn.addEventListener('click',function(){
+				p.innerHTML = "栈顶内容：" + stack[0];
+			})
+			emptyBtn.addEventListener('click',function(){
+				if(stack.length === 0){
+					p.innerHTML = "栈是空的";
+				}else{
+					p.innerHTML = "栈不是空的";
+				}
+			})
+		</script>
+	</body>
+</html>
