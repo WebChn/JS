@@ -1,0 +1,164 @@
+<html>
+	<head>
+		<title></title>
+		<meta charset="UTF-8"/>
+	</head>
+	<body>
+	<!--
+            我们现在来做一个最简单的时钟，通过小练习来学习 Date，复习定时，然后再练习一下函数的封装
+	具体需求如下：
+	
+	在页面中显示当前日期及时间，按秒更新
+	格式为 YYYY 年 MM 月 DD 日 星期 D HH:mm:ss
+	注意位数的补齐，比如：
+	-- 假设时间为2008年10月10日星期一的12点12分12秒，显示2008年10月10日星期一 12:12:12
+	-- 假设时间为2008年1月1日星期一的3点2分2秒，显示2008年01月01日星期一 03:02:02
+	编码过程中，我们希望你注意对函数的封装，尽量让一个函数就做一个事情，而不要把所有的功能、代码揉在一起：
+	
+	封装一个函数，来根据某个日期返回这一天是星期几
+	封装一个函数，把月、日、小时等出现个位数的情况前面补充0，补充为两位，比如1变为01
+	封装一个函数，把最后的日期时间，按照要求的格式进行包装
+	可能不止上面这些，尽可能地进行功能的解耦和拆解
+	编码
+	完成上面需求后，现在需求做一些小的变更
+	
+	输出格式变为：2008-10-10 Monday 07:10:30 PM
+	编码
+	基于上面的需求，要求，同时在页面上，输出两种格式的日期时间
+	希望通过上面的练习，让你体会函数的概念、作用和价值
+     -->
+    	
+     <p id="time1"></p>
+     <p id="time2"></p>
+     <script type="text/javascript">
+     		
+     		
+     		
+     		
+     		function start(){
+     			var d = new Date(); 
+     			var day = d.getDay();
+     			var time1 = document.querySelector('#time1');
+     			var time2 = document.querySelector('#time2');
+     			
+     				
+     			
+     			function getDay1(){
+	     		switch (day - 1){
+	     		
+	     			case 0 : Day = '星期一';break;
+	     			case 1 : Day = '星期二';break;
+	     			case 2 : Day = '星期三';break;
+	     			case 3 : Day = '星期四';break;
+	     			case 4 : Day = '星期五';break;
+	     			case 5 : Day = '星期六';break;
+	     			case 6 : Day = '星期天';break;
+	     			
+	     		}
+	     		
+		     		return Day;
+		     	}
+     			function getDay2(){
+	     		switch (day - 1){
+	     		
+	     			
+	     			case 0 : Day = 'Monday ';break;
+	     			case 1 : Day = 'Tuesday ';break;
+	     			case 2 : Day = 'Tuesday ';break;
+	     			case 3 : Day = 'Tuesday ';break;
+	     			case 4 : Day = 'Tuesday ';break;
+	     			case 5 : Day = 'Tuesday ';break;
+	     			case 6 : Day = 'Tuesday ';break;
+	     		}
+	     		
+		     		return Day;
+		     	}
+	     		
+	     		function getYear(){
+	     			var year = d.getFullYear();
+	     			
+	     			return year;
+	     		}
+	     		
+	     		
+	     		function getMonth(){
+	     			var month = d.getMonth() + 1;
+	     			if(month<10){
+	     				month = '0' + month;
+	     				return month;
+	     			}
+	     			
+	     		}
+	     		
+	     		
+	     		function getDate(){
+	     			var date = d.getDate();
+	     			if(date<10){
+	     				date = '0' + date;
+	     			}
+	     			
+	     			return date;
+	     		}
+	     		
+	     		function getHour1(){
+	     			var hour = d.getHours();
+	     			if(hour<10){
+	     				hour = '0' + hour;
+	     			}
+	     			return hour;
+	     		}
+	     		function getHour2(){
+	     			var hour = d.getHours();
+	     			if(hour<10){
+	     				hour = '0' + hour;
+	     			}
+	     			if(hour>11){
+	     				hour = hour -12;
+	     			}
+	     			if(hour<10){
+	     				hour = '0' + hour;
+	     			}
+	     			return hour;
+	     		}
+	     		
+	     		
+	     		function getMinute(){
+	     			var minute = d.getMinutes();
+	     			if(minute<10){
+	     				minute = '0' + minute;
+	     			}
+	     			
+	     			return minute;
+	     		}
+	     		
+	     		
+	     		function getSecond(){
+	     			var second = d.getSeconds();
+	     			if(second<10){
+	     				second = '0' + second;
+	     			}
+	     			
+	     			return second;
+	     		}
+	     		function getAMPM(){
+	     			if(getHour2()<12){
+	     				return 'AM';
+	     			}else{
+	     				return 'PM';
+	     			}
+	     		}
+	     			
+	     			time1.innerHTML = getYear() + "年" + getMonth() + "月" + getDate() + "日" + getDay1() + " " + getHour1() + ":" + getMinute() + ":" +getSecond();
+	     			time2.innerHTML = getYear() + "-" + getMonth() + "-" + getDate() + " " + getDay2() + " " + getHour2() + ":" + getMinute() + ":" +getSecond() + " " +  getAMPM();
+	     			setTimeout("start()",1000);   
+     		}
+     		start(); 
+     		 
+     		
+     		 
+     		
+     		
+     		
+     </script>
+	</body>
+</html>
