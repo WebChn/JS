@@ -1,0 +1,14 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+ul{
+	list-style: none;
+}
+#email-input,
+ul li{
+	width: 200px;
+}
+.active{
+	background: deepskyblue;
+}
